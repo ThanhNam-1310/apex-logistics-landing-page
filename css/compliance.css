@@ -1,0 +1,333 @@
+/* ===== Compliance Section ===== */
+.compliance-section {
+  scroll-margin-top: 7rem;
+  padding: 3rem 0;
+}
+
+@media (min-width: 640px) {
+  .compliance-section {
+    padding: 4rem 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .compliance-section {
+    padding: 5rem 0;
+  }
+}
+
+.compliance-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .compliance-container {
+    padding: 0 1.5rem;
+  }
+}
+
+/* Main grid */
+.compliance-grid {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .compliance-grid {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 3rem;
+  }
+}
+
+/* Left */
+.compliance-left {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.compliance-left.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.compliance-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #f37021;
+}
+
+@media (min-width: 640px) {
+  .compliance-eyebrow {
+    font-size: 0.875rem;
+  }
+}
+
+.compliance-title {
+  margin: 0.5rem 0 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #0f172a;
+}
+
+@media (min-width: 640px) {
+  .compliance-title {
+    margin-top: 0.75rem;
+    font-size: 1.875rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .compliance-title {
+    font-size: 2.25rem;
+  }
+}
+
+.compliance-description {
+  margin: 1rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: #475569;
+}
+
+@media (min-width: 640px) {
+  .compliance-description {
+    margin-top: 1.25rem;
+    font-size: 1rem;
+  }
+}
+
+/* Flow */
+.compliance-flow {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .compliance-flow {
+    margin-top: 3rem;
+  }
+}
+
+.compliance-flow-node {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  border: 2px solid #ffedd5;
+  background: #ffffff;
+  color: #f37021;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.compliance-flow-node.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (min-width: 640px) {
+  .compliance-flow-node {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  .compliance-flow-node svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.compliance-flow-line {
+  height: 0;
+  min-width: 24px;
+  flex: 1;
+  border-top: 2px dashed #93c5fd;
+  transform-origin: left;
+  opacity: 0;
+  transform: scaleX(0);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.compliance-flow-line.is-visible {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Cards */
+.compliance-cards {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .compliance-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.compliance-card {
+  position: relative;
+  overflow: hidden;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.compliance-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.compliance-card:hover {
+  transform: translateY(-0.25rem);
+  border-color: #bfdbfe;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.compliance-card.is-visible:hover {
+  transform: translateY(-0.25rem);
+}
+
+@media (min-width: 640px) {
+  .compliance-card {
+    padding: 1.5rem;
+  }
+}
+
+.compliance-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: 0.75rem;
+  border-radius: 0.75rem;
+  background: #fff7ed;
+  color: #f37021;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.compliance-card:hover .compliance-card-icon {
+  background: #f37021;
+  color: #ffffff;
+}
+
+@media (min-width: 640px) {
+  .compliance-card-icon {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.compliance-card-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+@media (min-width: 640px) {
+  .compliance-card-title {
+    font-size: 1.125rem;
+  }
+}
+
+.compliance-card-desc {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: #475569;
+}
+
+/* Tags */
+.compliance-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.compliance-tags.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (min-width: 640px) {
+  .compliance-tags {
+    gap: 0.75rem;
+    margin-top: 3.5rem;
+  }
+}
+
+.compliance-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #334155;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.compliance-tag svg {
+  color: #f37021;
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .compliance-tag {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  .compliance-tag svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+/* Ornament trong Compliance – cách h2 */
+.compliance-left .compliance-ornament,
+.compliance-left .apex-ornament {
+  justify-content: flex-start; /* căn trái theo cột text */
+  margin: 0.85rem 0 1.25rem;  /* trên–dưới: tách eyebrow và h2 */
+}
+
+.compliance-left .compliance-title {
+  margin-top: 0; /* khoảng cách đã do ornament lo */
+}

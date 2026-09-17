@@ -1,0 +1,309 @@
+/* ===== Global – style.css (APEX Logistics) ===== */
+
+:root {
+  --apex-navy: #163f86;
+  --apex-navy-dark: #0f2f5d;
+  --apex-orange: #f37021;
+  --apex-orange-light: #f58a43;
+  --apex-orange-deep: #d95f17;
+  --apex-muted: #4f6784;
+  --apex-text: #1a2b3c;
+  --apex-cream: #fff8f1;
+  --apex-orange-soft: #fff4ea;
+  --apex-line: #eee7df;
+  --apex-border: #e2d0bb;
+
+  --apex-gradient: linear-gradient(
+    135deg,
+    #f58a43 0%,
+    #f37021 52%,
+    #d95f17 100%
+  );
+
+  --apex-card-bg: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(255, 246, 236, 0.96) 100%
+  );
+
+  --apex-icon-bg: #f37021;
+  --apex-icon-color: #ffffff;
+
+  --apex-shadow: 0 12px 26px rgba(243, 112, 33, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  --apex-shadow-soft: 0 8px 20px rgba(243, 112, 33, 0.18);
+
+  --apex-underline: #f37021;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #0f172a;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Times New Roman", Times, "Noto Serif", serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--apex-text);
+  background-color: #0f172a;
+  position: relative;
+}
+
+
+
+/* Ảnh nền – hoạt động tốt trên cả desktop & mobile */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image: url("/images/wallpaper.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+/* Mobile: chọn vùng ảnh đẹp hơn */
+@media (max-width: 768px) {
+  body::before {
+    background-position: center 40%;   /* thử 20% / 30% / 40% */
+    /* hoặc */
+    background-position: left center;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+main,
+#site-header,
+.site-footer,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+.vm-section,
+.about-section,
+.services-section,
+.industries-section,
+.compliance-section,
+.stats-section {
+  background: transparent;
+}
+
+.vm-title,
+.stats-title,
+.about-title,
+.services-title,
+.industries-title,
+.compliance-title {
+  color: var(--apex-navy) !important;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.vm-description,
+.about-description,
+.services-description,
+.industries-description,
+.compliance-description,
+.stats-desc,
+.vm-card-text,
+.about-feature-desc,
+.service-card-desc,
+.industry-card-desc,
+.compliance-card-desc {
+  color: var(--apex-muted) !important;
+  line-height: 1.65;
+}
+
+.vm-card-title,
+.about-feature-title,
+.service-card-title,
+.industry-card-title,
+.compliance-card-title {
+  color: var(--apex-navy) !important;
+  font-weight: 700;
+}
+
+.vm-eyebrow,
+.about-eyebrow,
+.compliance-eyebrow,
+.stats-label,
+.industry-category,
+.contact-heading {
+  color: var(--apex-orange) !important;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.vm-card,
+.stats-card,
+.about-feature,
+.service-card,
+.industry-card,
+.compliance-card {
+  background: var(--apex-card-bg) !important;
+  box-shadow: var(--apex-shadow-soft);
+}
+
+.vm-icon,
+.stats-icon,
+.about-feature-icon,
+.compliance-card-icon,
+.services-highlight-icon,
+.industries-note-icon,
+.compliance-flow-node {
+  background: var(--apex-icon-bg) !important;
+  color: var(--apex-icon-color) !important;
+  box-shadow: var(--apex-shadow);
+}
+
+.vm-icon svg,
+.stats-icon svg,
+.about-feature-icon svg,
+.compliance-card-icon svg,
+.services-highlight-icon svg,
+.industries-note-icon svg,
+.compliance-flow-node svg {
+  stroke: currentColor;
+  color: #ffffff;
+}
+
+.service-icon-box,
+.industry-icon {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+  box-shadow: var(--apex-shadow);
+}
+
+.service-icon-box svg,
+.industry-icon svg {
+  stroke: currentColor;
+  color: #ffffff;
+}
+
+.vm-underline,
+.stats-underline,
+.about-feature-underline,
+.about-feature-top-line,
+.industry-underline,
+.stats-title-underline {
+  background: var(--apex-underline) !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+/* ===== APEX ornament ===== */
+.apex-ornament {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 auto 1.15rem;
+  width: 100%;
+}
+
+/* Hai gạch mảnh, fade 2 đầu */
+.apex-ornament span {
+  display: block !important;
+  flex: 0 0 auto;
+  width: 56px;
+  height: 1px;
+  border: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--apex-navy, #163f86) 20%,
+    var(--apex-navy, #163f86) 80%,
+    transparent
+  );
+  opacity: 0.55;
+}
+
+/* Chấm tròn cam ở giữa */
+.apex-ornament i {
+  display: block !important;
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--apex-orange, #f37021);
+  box-shadow: 0 0 0 3px rgba(243, 112, 33, 0.2);
+  transform: none;
+  font-style: normal;
+  font-size: 0;
+  line-height: 0;
+}
+
+.apex-ornament--sm span {
+  width: 40px;
+}
+
+.apex-ornament--sm i {
+  width: 6px;
+  height: 6px;
+  box-shadow: 0 0 0 2px rgba(243, 112, 33, 0.2);
+}
+
+@media (max-width: 640px) {
+  .apex-ornament span {
+    width: 36px;
+  }
+  .apex-ornament--sm span {
+    width: 28px;
+  }
+}
