@@ -106,4 +106,49 @@
   updateDesktop();
   updateDots();
   resetAuto();
+
+  // ----- Swipe Mobile -----
+  const mobileTrack = document.querySelector(".banner__mobile-track");
+  if (mobileTrack) {
+    let startX = 0;
+    let startY = 0;
+    let isSwiping = false;
+
+    mobileTrack.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      isSwiping = true;
+    }, { passive: true });
+
+    mobileTrack.addEventListener("touchmove", (e) => {
+      if (!isSwiping) return;
+
+      const diffX = Math.abs(e.touches[0].clientX - startX);
+      const diffY = Math.abs(e.touches[0].clientY - startY);
+
+      // Nếu vuốt ngang rõ ràng hơn dọc → ngăn scroll trang
+      if (diffX > diffY && diffX > 10) {
+        e.preventDefault(); // cần { passive: false } nếu muốn chặn scroll
+      }
+    }, { passive: false });
+
+    mobileTrack.addEventListener("touchend", (e) => {
+      if (!isSwiping) return;
+      isSwiping = false;
+
+      const endX = e.changedTouches[0].clientX;
+      const diff = startX - endX;
+
+      // Ngưỡng vuốt (50px)
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          // Vuốt sang trái → next
+          goTo(current + 1);
+        } else {
+          // Vuốt sang phải → prev
+          goTo(current - 1);
+        }
+      }
+    }, { passive: true });
+  }
 })();
